@@ -43,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    const quarterlySalary = monthlyIncome * 3;
-    const weeklySalary = quarterlySalary / 13;
-    const dailySalary = weeklySalary / workingDays;
-    const vacationCompensation = dailySalary * vacationDays;
-
+const quarterlySalary = monthlyIncome * 3;
+const weeklySalary = Math.round((quarterlySalary / 13) * 100) / 100; 
+const dailySalary = Math.round((weeklySalary / workingDays) * 100) / 100; 
+const vacationCompensation = dailySalary * vacationDays;
+    
     document.getElementById('quarterly-salary').textContent =
       `${formatCurrency(monthlyIncome)} × 3 = ${formatCurrency(quarterlySalary)}`;
 
